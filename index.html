@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#100b0b">
+
 <title>A little wall for you ♡</title>
 
 <style>
@@ -33,17 +34,16 @@ button{font:inherit}
   position:fixed;
   inset:0;
   z-index:100;
-  background:
-    radial-gradient(circle at 50% 50%,#382016 0,#120909 42%,#050303 100%);
+  background:radial-gradient(circle at 50% 55%,#2a1913 0,#0d0808 45%,#050303 100%);
   display:grid;
   place-items:center;
-  transition:opacity 1.4s ease,visibility 1.4s;
+  transition:opacity 1.2s ease,visibility 1.2s;
 }
 
 .intro-inner{
   text-align:center;
   padding:30px;
-  max-width:560px;
+  max-width:520px;
 }
 
 .mini-light{
@@ -53,7 +53,7 @@ button{font:inherit}
   border-radius:50%;
   display:inline-block;
   box-shadow:0 0 18px 7px #ffd77a;
-  margin:0 5px;
+  margin:0 4px;
   animation:pulse 1.8s infinite alternate;
 }
 
@@ -67,7 +67,7 @@ button{font:inherit}
 #intro p{
   font-family:system-ui,sans-serif;
   opacity:.72;
-  line-height:1.7;
+  line-height:1.6;
 }
 
 #enter{
@@ -79,23 +79,15 @@ button{font:inherit}
   padding:13px 23px;
   cursor:pointer;
   backdrop-filter:blur(8px);
-  box-shadow:0 0 30px rgba(255,190,80,.08);
-  transition:.25s ease;
-}
-
-#enter:hover{
-  background:rgba(255,216,121,.12);
-  box-shadow:0 0 30px rgba(255,190,80,.2);
-  transform:translateY(-2px);
 }
 
 #enter:active{transform:scale(.97)}
 
-/* SITE */
+/* ROOM */
 
 #site{
   opacity:0;
-  transition:opacity 1.4s ease;
+  transition:opacity 1.2s ease;
   min-height:100vh;
 }
 
@@ -103,10 +95,9 @@ button{font:inherit}
 
 .room{
   min-height:100vh;
-  padding:44px 12px 90px;
+  padding:44px 12px 120px;
   background:
-    radial-gradient(circle at 50% 15%,rgba(255,196,112,.12),transparent 28%),
-    radial-gradient(circle at 50% 55%,rgba(255,150,70,.035),transparent 45%),
+    radial-gradient(circle at 50% 20%,rgba(255,196,112,.10),transparent 30%),
     linear-gradient(180deg,#17100e 0,#0b0707 55%,#050303 100%);
 }
 
@@ -154,29 +145,11 @@ button{font:inherit}
     linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
     linear-gradient(180deg,#241b19,#171111 65%,#120d0d);
   background-size:28px 28px,28px 28px,100% 100%;
-  border-radius:7px;
-
+  border-radius:6px;
   box-shadow:
     0 30px 70px rgba(0,0,0,.65),
-    0 0 100px rgba(255,170,70,.06),
-    inset 0 0 0 1px rgba(255,255,255,.06),
-    inset 0 0 80px rgba(255,180,80,.07);
-
+    inset 0 0 0 1px rgba(255,255,255,.06);
   overflow:hidden;
-}
-
-/* warm light around the wall */
-
-.wall:before{
-  content:"";
-  position:absolute;
-  inset:-20%;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 50% 5%,rgba(255,213,130,.12),transparent 30%),
-    radial-gradient(circle at 10% 50%,rgba(255,180,80,.05),transparent 25%),
-    radial-gradient(circle at 90% 60%,rgba(255,180,80,.05),transparent 25%);
-  z-index:1;
 }
 
 .grid{
@@ -185,13 +158,21 @@ button{font:inherit}
   opacity:.78;
   background:
     linear-gradient(#18100f 0 0) center/100% 2px no-repeat,
-    repeating-linear-gradient(0deg,transparent 0 19.5%,rgba(22,13,12,.95) 19.5% 20.2%),
-    repeating-linear-gradient(90deg,transparent 0 19.5%,rgba(22,13,12,.95) 19.5% 20.2%);
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 19.5%,
+      rgba(22,13,12,.95) 19.5% 20.2%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 19.5%,
+      rgba(22,13,12,.95) 19.5% 20.2%
+    );
   filter:drop-shadow(0 2px 2px rgba(0,0,0,.35));
-  z-index:2;
 }
 
-.grid:before,.grid:after{
+.grid:before,
+.grid:after{
   content:"";
   position:absolute;
   inset:0;
@@ -246,12 +227,15 @@ button{font:inherit}
 .b2{left:31%;top:1%}
 .b3{left:53%;top:1%;animation-delay:.8s}
 .b4{left:77%;top:2%;animation-delay:1.2s}
+
 .b5{left:96%;top:24%;animation-delay:.3s}
 .b6{left:96%;top:52%;animation-delay:1s}
 .b7{left:96%;top:80%;animation-delay:.4s}
+
 .b8{left:70%;top:99%}
 .b9{left:46%;top:99%;animation-delay:.9s}
 .b10{left:22%;top:99%;animation-delay:.2s}
+
 .b11{left:1%;top:74%;animation-delay:1.1s}
 .b12{left:1%;top:43%;animation-delay:.6s}
 .b13{left:1%;top:16%;animation-delay:.1s}
@@ -263,15 +247,13 @@ button{font:inherit}
   z-index:4;
   background:#eee9dd;
   padding:6px 6px 17px;
-  box-shadow:
-    0 7px 13px rgba(0,0,0,.48),
-    0 0 18px rgba(255,190,90,.04);
+  box-shadow:0 7px 13px rgba(0,0,0,.48);
   transform:rotate(var(--r));
   cursor:pointer;
   transition:
-    transform .3s ease,
-    filter .3s ease,
-    box-shadow .3s ease;
+    transform .25s,
+    filter .25s,
+    box-shadow .25s;
   will-change:transform;
 }
 
@@ -296,57 +278,51 @@ button{font:inherit}
 }
 
 .photo:hover{
-  transform:rotate(0deg) scale(1.045);
+  transform:rotate(0deg) scale(1.04);
   z-index:20;
-  box-shadow:
-    0 14px 28px rgba(0,0,0,.6),
-    0 0 20px rgba(255,211,125,.12);
 }
 
-/* KEYCHAINS */
+/* KEYCHAINS
+   No white card.
+   The multiply blend makes the white JPG background visually
+   disappear into the wall while preserving the object. */
 
 .keychain{
   background:transparent !important;
   padding:0 !important;
   box-shadow:none !important;
+  border-radius:0;
   overflow:visible;
-  filter:drop-shadow(0 8px 7px rgba(0,0,0,.62));
 }
 
 .keychain:after{
   content:"";
   position:absolute;
   left:50%;
-  top:-14px;
-  width:10px;
-  height:10px;
-  border:2px solid #c9a86b;
-  border-radius:50%;
+  top:-13px;
+  width:8px;
+  height:18px;
+  border:2px solid #b99a70;
+  border-bottom:0;
+  border-radius:8px 8px 0 0;
   background:transparent;
   transform:translateX(-50%);
-  box-shadow:
-    0 4px 0 -2px #8c7042,
-    0 0 5px rgba(255,210,130,.15);
+  box-shadow:0 1px 3px #0008;
 }
 
 .keychain img{
-  width:100%;
-  height:100%;
   object-fit:contain !important;
-  background:transparent;
-  border-radius:10px;
+  mix-blend-mode:multiply;
   filter:
-    saturate(1.1)
-    contrast(1.05)
-    drop-shadow(0 3px 3px rgba(0,0,0,.28));
+    drop-shadow(0 7px 5px rgba(0,0,0,.65))
+    drop-shadow(0 0 8px rgba(255,190,90,.08));
+  background:transparent;
+  border-radius:0;
 }
 
 .keychain:hover{
-  transform:rotate(0deg) scale(1.09);
-  z-index:25;
   filter:
-    drop-shadow(0 12px 13px rgba(0,0,0,.65))
-    drop-shadow(0 0 13px rgba(255,211,125,.18));
+    drop-shadow(0 0 10px rgba(255,211,125,.35));
 }
 
 /* POSITIONS */
@@ -356,15 +332,15 @@ button{font:inherit}
   top:7%;
   width:20%;
   height:16%;
-  --r:-4deg;
+  --r:-4deg
 }
 
 .p2{
-  left:28%;
-  top:6%;
-  width:21%;
-  height:17%;
-  --r:1deg;
+  left:29%;
+  top:7%;
+  width:17%;
+  height:18%;
+  --r:2deg
 }
 
 .p3{
@@ -372,7 +348,7 @@ button{font:inherit}
   top:7%;
   width:20%;
   height:17%;
-  --r:-3deg;
+  --r:-3deg
 }
 
 .p4{
@@ -380,7 +356,7 @@ button{font:inherit}
   top:14%;
   width:18%;
   height:25%;
-  --r:4deg;
+  --r:4deg
 }
 
 .p5{
@@ -388,15 +364,15 @@ button{font:inherit}
   top:29%;
   width:23%;
   height:23%;
-  --r:-3deg;
+  --r:-3deg
 }
 
 .p6{
-  left:35%;
+  left:36%;
   top:29%;
-  width:20%;
+  width:17%;
   height:18%;
-  --r:2deg;
+  --r:2deg
 }
 
 .p7{
@@ -404,7 +380,7 @@ button{font:inherit}
   top:29%;
   width:22%;
   height:22%;
-  --r:-2deg;
+  --r:-2deg
 }
 
 .p8{
@@ -412,7 +388,7 @@ button{font:inherit}
   top:55%;
   width:20%;
   height:21%;
-  --r:4deg;
+  --r:4deg
 }
 
 .p9{
@@ -420,26 +396,26 @@ button{font:inherit}
   top:52%;
   width:22%;
   height:24%;
-  --r:-2deg;
+  --r:-2deg
 }
 
 .p10{
   left:59%;
   top:56%;
-  width:22%;
-  height:23%;
-  --r:3deg;
+  width:20%;
+  height:22%;
+  --r:3deg
 }
 
 .p11{
   left:34%;
   top:78%;
-  width:27%;
-  height:17%;
-  --r:-1deg;
+  width:20%;
+  height:18%;
+  --r:-2deg
 }
 
-/* DECORATIONS */
+/* DECOR */
 
 .deco{
   position:absolute;
@@ -453,14 +429,35 @@ button{font:inherit}
   animation:float 4s ease-in-out infinite;
 }
 
-.bt1{left:2%;top:24%;transform:rotate(-12deg)}
-.bt2{left:49%;top:21%;animation-delay:1s}
-.bt3{right:2%;top:42%;transform:scale(.8);animation-delay:1.8s}
-.bt4{left:4%;bottom:9%;transform:scale(.7) rotate(10deg);animation-delay:2.2s}
+.bt1{
+  left:2%;
+  top:24%;
+  transform:rotate(-12deg)
+}
+
+.bt2{
+  left:49%;
+  top:21%;
+  animation-delay:1s
+}
+
+.bt3{
+  right:2%;
+  top:42%;
+  transform:scale(.8);
+  animation-delay:1.8s
+}
+
+.bt4{
+  left:4%;
+  bottom:9%;
+  transform:scale(.7) rotate(10deg);
+  animation-delay:2.2s
+}
 
 .heart{
   font-size:26px;
-  color:#eab1c5;
+  color:#eab1c5
 }
 
 .h1{left:24%;top:46%}
@@ -475,8 +472,17 @@ button{font:inherit}
   transform-origin:top;
 }
 
-.hang1{left:17%;top:0;height:19%}
-.hang2{right:13%;top:0;height:25%}
+.hang1{
+  left:17%;
+  top:0;
+  height:19%
+}
+
+.hang2{
+  right:13%;
+  top:0;
+  height:25%
+}
 
 .ornament{
   position:absolute;
@@ -510,596 +516,142 @@ button{font:inherit}
   margin-top:18px;
 }
 
-/* FINAL MESSAGE */
+/* ENVELOPE */
 
-.message{
-  width:min(92vw,650px);
-  margin:70px auto 0;
-  padding:30px 24px;
-  border:1px solid rgba(255,216,140,.18);
-  background:rgba(255,255,255,.035);
-  border-radius:24px;
-  box-shadow:
-    0 20px 50px #0007,
-    0 0 50px rgba(255,180,70,.04);
-  display:none;
+.envelope{
+  position:absolute;
+  z-index:30;
+  left:58%;
+  top:79%;
+  width:24%;
+  aspect-ratio:1.45;
+  cursor:pointer;
+  transform:rotate(3deg);
+  filter:drop-shadow(0 9px 9px rgba(0,0,0,.6));
+  transition:transform .3s,filter .3s;
+}
+
+.envelope:hover{
+  transform:rotate(0deg) scale(1.06);
+  filter:
+    drop-shadow(0 9px 9px rgba(0,0,0,.6))
+    drop-shadow(0 0 12px rgba(255,210,125,.2));
+}
+
+.envelope-back{
+  position:absolute;
+  inset:0;
+  background:#ead7b5;
+  border-radius:3px;
+  overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(91,59,35,.18);
+}
+
+.envelope-back:before,
+.envelope-back:after{
+  content:"";
+  position:absolute;
+  bottom:-1px;
+  width:72%;
+  height:80%;
+  background:#dfc59c;
+}
+
+.envelope-back:before{
+  left:-20%;
+  transform:skew(-34deg);
+}
+
+.envelope-back:after{
+  right:-20%;
+  transform:skew(34deg);
+}
+
+.envelope-front{
+  position:absolute;
+  inset:0;
+  background:#f0dfbd;
+  clip-path:polygon(0 35%,50% 75%,100% 35%,100% 100%,0 100%);
+  z-index:3;
+}
+
+.envelope-flap{
+  position:absolute;
+  inset:0;
+  background:#f5e5c5;
+  clip-path:polygon(0 0,100% 0,50% 67%);
+  transform-origin:top center;
+  z-index:5;
+  transition:transform .9s cubic-bezier(.2,.75,.2,1);
+  backface-visibility:hidden;
+  box-shadow:0 2px 3px rgba(70,45,25,.18);
+}
+
+.envelope.open .envelope-flap{
+  transform:rotateX(180deg);
+}
+
+.envelope-label{
+  position:absolute;
+  z-index:8;
+  left:50%;
+  top:52%;
+  transform:translate(-50%,-50%);
+  color:#624634;
+  font-family:"Segoe Print","Bradley Hand",cursive;
+  font-size:clamp(7px,1.7vw,13px);
+  white-space:nowrap;
   text-align:center;
+  pointer-events:none;
 }
 
-.message.show{
+.envelope-label strong{
   display:block;
-  animation:rise 1s ease both;
-}
-
-.message .tiny{
-  font:700 10px system-ui,sans-serif;
-  letter-spacing:.24em;
-  color:#f2c979;
-}
-
-.message h3{
-  font-size:clamp(32px,8vw,54px);
+  font-size:1.15em;
   font-weight:400;
-  margin:12px 0;
 }
 
-.message p{
-  font:16px/1.8 system-ui,sans-serif;
-  color:#eadcc9;
-  white-space:pre-line;
+.envelope-hint{
+  position:absolute;
+  top:106%;
+  left:50%;
+  transform:translateX(-50%);
+  white-space:nowrap;
+  font:8px system-ui,sans-serif;
+  color:#e5d3bd;
+  opacity:.65;
 }
 
-.signature{
-  margin-top:25px;
-  font-size:18px;
-  color:#f2c979;
-}
+/* LETTER MODAL */
 
-/* MODAL */
-
-.modal{
+.letter-overlay{
   position:fixed;
   inset:0;
-  z-index:200;
+  z-index:500;
   background:rgba(5,3,3,.88);
   backdrop-filter:blur(14px);
   display:none;
   place-items:center;
   padding:20px;
+  overflow:auto;
 }
 
-.modal.open{
+.letter-overlay.open{
   display:grid;
-  animation:fadeIn .25s ease;
 }
 
-.card{
-  width:min(92vw,420px);
-  background:#f8edd8;
-  color:#251916;
-  border-radius:18px;
-  padding:10px;
-  box-shadow:
-    0 30px 90px #000,
-    0 0 60px rgba(255,190,90,.08);
-  animation:cardIn .35s ease;
+.letter-stage{
+  width:min(92vw,570px);
+  max-height:90vh;
+  position:relative;
+  perspective:1000px;
 }
 
-.card img{
-  width:100%;
-  max-height:58vh;
-  object-fit:contain;
-  border-radius:12px;
-  background:#1b1210;
-}
-
-.card-body{
-  padding:14px 8px 16px;
-  text-align:center;
-}
-
-.card-body h4{
-  margin:0 0 7px;
-  font-size:22px;
-  font-weight:400;
-}
-
-.card-body p{
-  margin:0;
-  font:13px/1.6 system-ui,sans-serif;
-  opacity:.78;
-}
-
-.close{
-  position:absolute;
-  right:18px;
-  top:18px;
-  border:0;
-  background:#fff1;
-  color:#fff;
-  border-radius:50%;
-  width:42px;
-  height:42px;
-  font-size:22px;
-  cursor:pointer;
-}
-
-/* ANIMATIONS */
-
-@keyframes pulse{
-  to{
-    opacity:.45;
-    box-shadow:0 0 10px 3px #ffd77a;
-  }
-}
-
-@keyframes twinkle{
-  to{
-    opacity:.55;
-    transform:scale(.8);
-  }
-}
-
-@keyframes float{
-  0%,100%{translate:0 0}
-  50%{translate:0 -8px}
-}
-
-@keyframes rise{
-  from{
-    opacity:0;
-    transform:translateY(25px);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-@keyframes fadeIn{
-  from{opacity:0}
-  to{opacity:1}
-}
-
-@keyframes cardIn{
-  from{
-    opacity:0;
-    transform:translateY(15px) scale(.96);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-/* MOBILE */
-
-@media(max-width:420px){
-
-  .wall-wrap{
-    padding-left:2px;
-    padding-right:2px;
-  }
-
-  .photo{
-    padding:4px 4px 12px;
-  }
-
-  .photo:after{
-    width:13px;
-    height:7px;
-    top:-6px;
-  }
-
-  .keychain:after{
-    top:-10px;
-    width:8px;
-    height:8px;
-  }
-
-  .note{
-    font-size:7px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<!-- INTRO -->
-
-<div id="intro">
-  <div class="intro-inner">
-
-    <div>
-      <span class="mini-light"></span>
-      <span class="mini-light" style="animation-delay:.6s"></span>
-      <span class="mini-light" style="animation-delay:1.1s"></span>
-    </div>
-
-    <h1>A little something for you ♡</h1>
-
-    <p>
-      I saw your little wall of things you love…<br>
-      so I wanted to make my own version of it.
-    </p>
-
-    <button id="enter">turn on the lights ✨</button>
-
-  </div>
-</div>
-
-
-<!-- MAIN SITE -->
-
-<main id="site">
-
-<section class="room">
-
-<header class="heading">
-
-  <div class="eyebrow">for your birthday</div>
-
-  <h2>a little piece of your wall</h2>
-
-  <p>tap the pictures. some of them have something to say.</p>
-
-</header>
-
-
-<div class="wall-wrap">
-
-<div class="wall" id="wall">
-
-  <div class="grid"></div>
-
-
-  <!-- LIGHTS -->
-
-  <div class="lights">
-
-    <div class="wire"></div>
-
-    <i class="bulb b1"></i>
-    <i class="bulb b2"></i>
-    <i class="bulb b3"></i>
-    <i class="bulb b4"></i>
-    <i class="bulb b5"></i>
-    <i class="bulb b6"></i>
-    <i class="bulb b7"></i>
-    <i class="bulb b8"></i>
-    <i class="bulb b9"></i>
-    <i class="bulb b10"></i>
-    <i class="bulb b11"></i>
-    <i class="bulb b12"></i>
-    <i class="bulb b13"></i>
-
-  </div>
-
-
-  <div class="hanging hang1"></div>
-  <div class="hanging hang2"></div>
-
-
-  <!-- 1 -->
-
-  <div
-    class="photo p1"
-    data-title="Bangtan ♡"
-    data-text="Bangtan means so much to you. It's more than just the music. It's the members, the memories, the comfort, and all the little moments you've had because of them. I know how special BTS is to you."
-  >
-    <img
-      src="https://i.ibb.co/Tx9kMrgj/Screenshot-2026-09-25-17-59-15-402-com-android-chrome-edit.jpg"
-      alt="BTS group picture"
-    >
-  </div>
-
-
-  <!-- 2 COOKY KEYCHAIN -->
-
-  <div
-    class="photo keychain p2"
-    data-title="COOKY ♡"
-    data-text="I know you must have loved getting this little COOKY 😭 It's so cute, and I can totally see why you'd want to keep something like this close to you."
-  >
-    <img
-      src="https://i.ibb.co/pvJysL8n/Screenshot-2026-09-25-18-05-08-480-com-google-android-googlequicksearchbox-edit.jpg"
-      alt="COOKY"
-    >
-  </div>
-
-
-  <!-- 3 JIN -->
-
-  <div
-    class="photo p3"
-    data-title="Worldwide Handsome"
-    data-text="Worldwide Handsome himself 😭 There's just something about Jin. The confidence, the humor, the face, everything. I know how much you love him, so this one feels very fitting."
-  >
-    <img
-      src="https://i.ibb.co/XZMTq41C/66dca008dbbd49a86f149912e3d66dc7.jpg"
-      alt="Jin"
-    >
-  </div>
-
-
-  <!-- 4 BTS -->
-
-  <div
-    class="photo p4"
-    data-title="Bangtan ♡"
-    data-text="Bangtan really has become such a big part of your life. Their music, the members, the memories and all the comfort you've found in them. I know there's a lot behind that little picture."
-  >
-    <img
-      src="https://i.ibb.co/V0T5QC11/25bcebc05220513d32600b17e2590bbc.jpg"
-      alt="BTS group picture"
-    >
-  </div>
-
-
-  <!-- 5 EDGE OF HORIZON -->
-
-  <div
-    class="photo p5"
-    data-title="The Edge of Horizon ♡"
-    data-text="I still remember you telling me you cried when they finally got together and lived happily ever after 😭 After everything they went through, I honestly understand why that ending got to you so much."
-  >
-    <img
-      src="https://i.ibb.co/WWH0Z6gR/2ogl1xbsw5lh1-1.png"
-      alt="The Edge of Horizon couple"
-    >
-  </div>
-
-
-  <!-- 6 JUNGKOOK KEYCHAIN -->
-
-  <div
-    class="photo keychain p6"
-    data-title="Jungkook ♡"
-    data-text="I know you must have loved getting this one 😭 Jungkook's tattoos, his hand, the little details and everything. Somehow you ended up with a tiny version of something you'd probably recognize instantly."
-  >
-    <img
-      src="https://i.ibb.co/G3vwR8nz/images-15.jpg"
-      alt="Jungkook tattoo hand"
-    >
-  </div>
-
-
-  <!-- 7 JUNGKOOK -->
-
-  <div
-    class="photo p7"
-    data-title="Your Jungkook ♡"
-    data-text="I know you love him a LOT 😭 And honestly, look at that smile. I already know why this picture caught your attention."
-  >
-    <img
-      src="https://i.ibb.co/HDFcr9n7/9e327d0915a3c0148ac812a86f2681af.jpg"
-      alt="Jungkook smiling"
-    >
-  </div>
-
-
-  <!-- 8 EDGE OF HORIZON -->
-
-  <div
-    class="photo p8"
-    data-title="The Edge of Horizon"
-    data-text="Their whole story was such a journey. All the things they went through, all the heartbreak, and then finally getting to be together and live happily ever after. No wonder you cried at the ending."
-  >
-    <img
-      src="https://i.ibb.co/sJmch08m/Screenshot-2026-09-25-18-02-38-552-com-google-android-googlequicksearchbox-edit.jpg"
-      alt="The Edge of Horizon couple"
-    >
-  </div>
-
-
-  <!-- 9 JIMIN -->
-
-  <div
-    class="photo p9"
-    data-title="Jimin ♡"
-    data-text="There's something about Jimin in this picture that I really like. I know he's special to you, and there's just something really cute about this picture. I can already imagine you looking at this and smiling."
-  >
-    <img
-      src="https://i.ibb.co/wZBLvk8p/b6cb5109a8c4fd482daa74aaf00ad2f3.jpg"
-      alt="Jimin"
-    >
-  </div>
-
-
-  <!-- 10 TAEHYUNG + YEONTAN KEYCHAIN -->
-
-  <div
-    class="photo keychain p10"
-    data-title="Taehyung & Yeontan ♡"
-    data-text="Taehyung and Yeontan 🥹 I know this one must be especially close to your heart. There's just something so sweet about seeing them together like this."
-  >
-    <img
-      src="https://i.ibb.co/tpbP21kJ/i-img1200x1176-1688526156471dze84r.jpg"
-      alt="Taehyung and Yeontan"
-    >
-  </div>
-
-
-  <!-- 11 VIVA LA VIDA -->
-
-  <div
-    class="photo p11"
-    data-title="Viva La Vida ♡"
-    data-text="Your little Twinkling Watermelon memory ♡ I know you really liked the drama, so I can see why this ended up becoming one of those little things that stayed with you."
-  >
-    <img
-      src="https://i.ibb.co/gML2GLB4/Ha4c9c833e0b543678c8aecda57d2900d-R.jpg"
-      alt="Viva La Vida"
-    >
-  </div>
-
-
-  <!-- DECORATIONS -->
-
-  <div class="deco butterfly bt1">🦋</div>
-  <div class="deco butterfly bt2">🦋</div>
-  <div class="deco butterfly bt3">🦋</div>
-  <div class="deco butterfly bt4">🦋</div>
-
-  <div class="deco heart h1">♡</div>
-  <div class="deco heart h2">♡</div>
-  <div class="deco heart h3">♡</div>
-
-  <div class="deco ornament o1">🎀</div>
-  <div class="deco ornament o2">🪩</div>
-  <div class="deco ornament o3">🍉</div>
-
-  <div class="note">
-    little things<br>
-    you love ♡
-  </div>
-
-</div>
-
-
-<div class="tap-hint">♡ tap a photo ♡</div>
-
-</div>
-
-
-<!-- FINAL MESSAGE -->
-
-<div class="message" id="message">
-
-  <div class="tiny">ONE LAST THING</div>
-
-  <h3>Happy Birthday ♡</h3>
-
-  <p>There are a million little things that make you you.
-
-And somehow, they all ended up on one tiny wall.
-
-I hope this year gives you more of the things that make you smile,
-more memories worth keeping,
-and a ridiculous amount of reasons to be happy.
-
-You deserve a really, really good year. ♡</p>
-
-  <div class="signature">made just for you ✨</div>
-
-</div>
-
-</section>
-
-</main>
-
-
-<!-- POPUP -->
-
-<div class="modal" id="modal">
-
-  <button class="close" aria-label="close">×</button>
-
-  <div class="card">
-
-    <img id="modalImg" src="" alt="">
-
-    <div class="card-body">
-      <h4 id="modalTitle"></h4>
-      <p id="modalText"></p>
-    </div>
-
-  </div>
-
-</div>
-
-
-<script>
-
-const intro = document.getElementById('intro');
-const site = document.getElementById('site');
-
-document.getElementById('enter').onclick = () => {
-
-  intro.style.opacity = '0';
-  intro.style.visibility = 'hidden';
-
-  site.classList.add('on');
-
-  window.scrollTo({
-    top:0,
-    behavior:'smooth'
-  });
-
-};
-
-
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modalImg');
-const modalTitle = document.getElementById('modalTitle');
-const modalText = document.getElementById('modalText');
-
-
-const photos = document.querySelectorAll('.photo');
-
-
-photos.forEach((photo) => {
-
-  photo.addEventListener('click', () => {
-
-    modalImg.src = photo.querySelector('img').src;
-
-    modalTitle.textContent = photo.dataset.title;
-
-    modalText.textContent = photo.dataset.text;
-
-    modal.classList.add('open');
-
-  });
-
-});
-
-
-modal.addEventListener('click', (event) => {
-
-  if(
-    event.target === modal ||
-    event.target.classList.contains('close')
-  ){
-    modal.classList.remove('open');
-  }
-
-});
-
-
-document.addEventListener('keydown', (event) => {
-
-  if(event.key === 'Escape'){
-    modal.classList.remove('open');
-  }
-
-});
-
-
-/* unlock final message after 7 different items */
-
-let opened = new Set();
-
-photos.forEach((photo,index) => {
-
-  photo.addEventListener('click', () => {
-
-    opened.add(index);
-
-    if(opened.size >= 7){
-
-      document
-        .getElementById('message')
-        .classList.add('show');
-
-    }
-
-  });
-
-});
-
-</script>
-
-</body>
-</html>
+.letter-paper{
+  background:
+    radial-gradient(circle at 20% 20%,rgba(130,87,48,.035),transparent 20%),
+    radial-gradient(circle at 80% 70%,rgba(130,87,48,.035),transparent 20%),
+    #f7ecd3;
+  color:#39271f;
+  border-radius:2px;
+  padding:clamp(28px,7vw,55px)
