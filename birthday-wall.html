@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#100b0b">
+<title>A little wall for you ♡</title>
+<style>
+:root{--cream:#fff3d5;--warm:#ffd879;--pink:#f4a5c8;--ink:#17100f}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#080606;color:#fff;font-family:Georgia,serif}
+body{overflow-x:hidden}
+button{font:inherit}
+#intro{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 50% 55%,#2a1913 0,#0d0808 45%,#050303 100%);display:grid;place-items:center;transition:opacity 1.2s ease,visibility 1.2s}
+.intro-inner{text-align:center;padding:30px;max-width:520px}
+.mini-light{width:8px;height:8px;background:#ffd77a;border-radius:50%;display:inline-block;box-shadow:0 0 18px 7px #ffd77a;margin:0 4px;animation:pulse 1.8s infinite alternate}
+#intro h1{font-size:clamp(30px,9vw,58px);font-weight:400;margin:28px 0 12px;letter-spacing:.02em}
+#intro p{font-family:system-ui,sans-serif;opacity:.72;line-height:1.6}
+#enter{margin-top:28px;border:1px solid rgba(255,240,200,.4);background:rgba(255,255,255,.07);color:#fff5dc;border-radius:999px;padding:13px 23px;cursor:pointer;backdrop-filter:blur(8px)}
+#enter:active{transform:scale(.97)}
+#site{opacity:0;transition:opacity 1.2s ease;min-height:100vh}
+#site.on{opacity:1}
+.room{min-height:100vh;padding:44px 12px 90px;background:
+radial-gradient(circle at 50% 20%,rgba(255,196,112,.10),transparent 30%),
+linear-gradient(180deg,#17100e 0,#0b0707 55%,#050303 100%)}
+.heading{text-align:center;margin:0 auto 26px;max-width:620px}
+.heading .eyebrow{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.25em;text-transform:uppercase;color:#f6cf89;opacity:.85}
+.heading h2{font-size:clamp(27px,7vw,45px);font-weight:400;margin:9px 0 5px}
+.heading p{margin:0;color:#e8d9c5;opacity:.72;font:14px/1.5 system-ui,sans-serif}
+.wall-wrap{width:min(94vw,650px);margin:auto;position:relative;padding:24px 12px 30px}
+.wall{position:relative;aspect-ratio: .72;background:
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+linear-gradient(180deg,#241b19,#171111 65%,#120d0d);
+background-size:28px 28px,28px 28px,100% 100%;
+border-radius:6px;box-shadow:0 30px 70px rgba(0,0,0,.65),inset 0 0 0 1px rgba(255,255,255,.06);
+overflow:hidden}
+.grid{position:absolute;inset:4%;opacity:.78;background:
+linear-gradient(#18100f 0 0) center/100% 2px no-repeat,
+repeating-linear-gradient(0deg,transparent 0 19.5%,rgba(22,13,12,.95) 19.5% 20.2%),
+repeating-linear-gradient(90deg,transparent 0 19.5%,rgba(22,13,12,.95) 19.5% 20.2%);
+filter:drop-shadow(0 2px 2px rgba(0,0,0,.35))}
+.grid:before,.grid:after{content:"";position:absolute;inset:0;pointer-events:none}
+.grid:before{background:repeating-linear-gradient(90deg,transparent 0 19.5%,#17100f 19.5% 20.2%)}
+.grid:after{background:repeating-linear-gradient(0deg,transparent 0 19.5%,#17100f 19.5% 20.2%)}
+.lights{position:absolute;inset:2%;z-index:8;pointer-events:none}
+.wire{position:absolute;inset:2%;border:2px solid #1b1514;border-radius:8px}
+.bulb{position:absolute;width:9px;height:9px;border-radius:50%;background:#ffe39a;box-shadow:0 0 10px 4px rgba(255,210,108,.72),0 0 25px 8px rgba(255,170,50,.22);animation:twinkle 2.5s infinite alternate}
+.b1{left:10%;top:1%}.b2{left:31%;top:1%}.b3{left:53%;top:1%;animation-delay:.8s}.b4{left:77%;top:2%;animation-delay:1.2s}
+.b5{left:96%;top:24%;animation-delay:.3s}.b6{left:96%;top:52%;animation-delay:1s}.b7{left:96%;top:80%;animation-delay:.4s}
+.b8{left:70%;top:99%}.b9{left:46%;top:99%;animation-delay:.9s}.b10{left:22%;top:99%;animation-delay:.2s}
+.b11{left:1%;top:74%;animation-delay:1.1s}.b12{left:1%;top:43%;animation-delay:.6s}.b13{left:1%;top:16%;animation-delay:.1s}
+.photo{position:absolute;z-index:4;background:#eee9dd;padding:6px 6px 17px;box-shadow:0 7px 13px rgba(0,0,0,.48);transform:rotate(var(--r));cursor:pointer;transition:transform .25s,filter .25s;will-change:transform}
+.photo:after{content:"";position:absolute;left:50%;top:-8px;width:17px;height:9px;border-radius:3px;background:#e6d1a2;transform:translateX(-50%) rotate(-4deg);box-shadow:0 1px 2px #0004}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo:hover{transform:rotate(0deg) scale(1.04);z-index:20}
+.p1{left:5%;top:7%;width:20%;height:16%;--r:-4deg}.p2{left:28%;top:6%;width:21%;height:17%;--r:1deg}.p3{left:54%;top:7%;width:20%;height:17%;--r:-3deg}.p4{left:76%;top:14%;width:18%;height:25%;--r:4deg}
+.p5{left:8%;top:29%;width:23%;height:23%;--r:-3deg}.p6{left:35%;top:29%;width:20%;height:18%;--r:2deg}.p7{left:59%;top:29%;width:22%;height:22%;--r:-2deg}
+.p8{left:7%;top:55%;width:20%;height:21%;--r:4deg}.p9{left:31%;top:52%;width:22%;height:24%;--r:-2deg}.p10{left:59%;top:56%;width:22%;height:23%;--r:3deg}.p11{left:34%;top:78%;width:27%;height:17%;--r:-1deg}
+.deco{position:absolute;z-index:10;pointer-events:none;filter:drop-shadow(0 2px 3px #0008)}
+.butterfly{font-size:clamp(23px,6vw,38px);animation:float 4s ease-in-out infinite}
+.bt1{left:2%;top:24%;transform:rotate(-12deg)}.bt2{left:49%;top:21%;animation-delay:1s}.bt3{right:2%;top:42%;transform:scale(.8);animation-delay:1.8s}.bt4{left:4%;bottom:9%;transform:scale(.7) rotate(10deg);animation-delay:2.2s}
+.heart{font-size:26px;color:#eab1c5}.h1{left:24%;top:46%}.h2{right:20%;bottom:19%}.h3{left:18%;bottom:5%}
+.hanging{position:absolute;z-index:11;width:3px;background:#30211d;transform-origin:top}
+.hang1{left:17%;top:0;height:19%}.hang2{right:13%;top:0;height:25%}
+.ornament{position:absolute;z-index:12;font-size:26px}.o1{left:4%;top:91%}.o2{right:1%;top:9%}.o3{right:5%;bottom:4%}
+.note{position:absolute;z-index:14;left:47%;top:43%;transform:translate(-50%,-50%) rotate(-2deg);background:#f7e8c6;color:#32231b;padding:8px 10px;font:700 9px/1.2 system-ui,sans-serif;letter-spacing:.08em;box-shadow:0 4px 8px #0007}
+.tap-hint{text-align:center;font:12px system-ui,sans-serif;color:#ddcdb9;opacity:.6;margin-top:18px}
+.message{width:min(92vw,650px);margin:70px auto 0;padding:30px 24px;border:1px solid rgba(255,216,140,.18);background:rgba(255,255,255,.035);border-radius:24px;box-shadow:0 20px 50px #0007;display:none;text-align:center}
+.message.show{display:block;animation:rise 1s ease both}
+.message .tiny{font:700 10px system-ui,sans-serif;letter-spacing:.24em;color:#f2c979}
+.message h3{font-size:clamp(32px,8vw,54px);font-weight:400;margin:12px 0}
+.message p{font:16px/1.8 system-ui,sans-serif;color:#eadcc9;white-space:pre-line}
+.signature{margin-top:25px;font-size:18px;color:#f2c979}
+.modal{position:fixed;inset:0;z-index:200;background:rgba(5,3,3,.86);backdrop-filter:blur(12px);display:none;place-items:center;padding:20px}
+.modal.open{display:grid}
+.card{width:min(92vw,420px);background:#f8edd8;color:#251916;border-radius:18px;padding:10px;box-shadow:0 30px 90px #000}
+.card img{width:100%;max-height:58vh;object-fit:contain;border-radius:12px;background:#1b1210}
+.card-body{padding:12px 8px 14px;text-align:center}.card-body h4{margin:0 0 6px;font-size:22px;font-weight:400}.card-body p{margin:0;font:13px/1.5 system-ui,sans-serif;opacity:.75}
+.close{position:absolute;right:18px;top:18px;border:0;background:#fff1;color:#fff;border-radius:50%;width:42px;height:42px;font-size:22px}
+@keyframes pulse{to{opacity:.45;box-shadow:0 0 10px 3px #ffd77a}}
+@keyframes twinkle{to{opacity:.55;transform:scale(.8)}}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+@media(max-width:420px){.wall-wrap{padding-left:2px;padding-right:2px}.photo{padding:4px 4px 12px}.photo:after{width:13px;height:7px;top:-6px}.note{font-size:7px}}
+</style>
+</head>
+<body>
+<div id="intro">
+  <div class="intro-inner">
+    <div><span class="mini-light"></span><span class="mini-light" style="animation-delay:.6s"></span><span class="mini-light" style="animation-delay:1.1s"></span></div>
+    <h1>A little something for you ♡</h1>
+    <p>I saw your little wall of things you love…<br>so I wanted to make my own version of it.</p>
+    <button id="enter">turn on the lights ✨</button>
+  </div>
+</div>
+
+<main id="site">
+<section class="room">
+  <header class="heading">
+    <div class="eyebrow">for your birthday</div>
+    <h2>a little piece of your wall</h2>
+    <p>tap the pictures. some of them have something to say.</p>
+  </header>
+
+  <div class="wall-wrap">
+    <div class="wall" id="wall">
+      <div class="grid"></div>
+      <div class="lights"><div class="wire"></div>
+        <i class="bulb b1"></i><i class="bulb b2"></i><i class="bulb b3"></i><i class="bulb b4"></i>
+        <i class="bulb b5"></i><i class="bulb b6"></i><i class="bulb b7"></i><i class="bulb b8"></i>
+        <i class="bulb b9"></i><i class="bulb b10"></i><i class="bulb b11"></i><i class="bulb b12"></i><i class="bulb b13"></i>
+      </div>
+      <div class="hanging hang1"></div><div class="hanging hang2"></div>
+
+      <div class="photo p1" data-title="a little BTS energy" data-text="Obviously this wall needed them."><img src="https://i.ibb.co/Tx9kMrgj/Screenshot-2026-09-25-17-59-15-402-com-android-chrome-edit.jpg" alt=""></div>
+      <div class="photo p2" data-title="COOKY ♡" data-text="A tiny resident of the wall, exactly where it belongs."><img src="https://i.ibb.co/pvJysL8n/Screenshot-2026-09-25-18-05-08-480-com-google-android-googlequicksearchbox-edit.jpg" alt=""></div>
+      <div class="photo p3" data-title="your guy" data-text="No explanation required. I know this one was making the wall."><img src="https://i.ibb.co/XZMTq41C/66dca008dbbd49a86f149912e3d66dc7.jpg" alt=""></div>
+      <div class="photo p4" data-title="the whole gang" data-text="A wall like this needs at least one chaotic group picture."><img src="https://i.ibb.co/V0T5QC11/25bcebc05220513d32600b17e2590bbc.jpg" alt=""></div>
+      <div class="photo p5" data-title="a little black & white moment" data-text="Some pictures just have a whole different kind of atmosphere."><img src="https://i.ibb.co/WWH0Z6gR/2ogl1xbsw5lh1-1.png" alt=""></div>
+      <div class="photo p6" data-title="tiny details" data-text="The things you love deserve their own little corner."><img src="https://i.ibb.co/G3vwR8nz/images-15.jpg" alt=""></div>
+      <div class="photo p7" data-title="another favorite" data-text="Yes, this one gets a spot too."><img src="https://i.ibb.co/HDFcr9n7/9e327d0915a3c0148ac812a86f2681af.jpg" alt=""></div>
+      <div class="photo p8" data-title="soft memories" data-text="Somewhere between a picture and a memory."><img src="https://i.ibb.co/sJmch08m/Screenshot-2026-09-25-18-02-38-552-com-google-android-googlequicksearchbox-edit.jpg" alt=""></div>
+      <div class="photo p9" data-title="a favorite face" data-text="Because apparently one photo was never going to be enough."><img src="https://i.ibb.co/wZBLvk8p/b6cb5109a8c4fd482daa74aaf00ad2f3.jpg" alt=""></div>
+      <div class="photo p10" data-title="one more for the wall" data-text="Keeping the little universe together."><img src="https://i.ibb.co/tpbP21kJ/i-img1200x1176-1688526156471dze84r.jpg" alt=""></div>
+      <div class="photo p11" data-title="a tiny keepsake" data-text="The random little things are part of the story too."><img src="https://i.ibb.co/gML2GLB4/Ha4c9c833e0b543678c8aecda57d2900d-R.jpg" alt=""></div>
+
+      <div class="deco butterfly bt1">🦋</div><div class="deco butterfly bt2">🦋</div><div class="deco butterfly bt3">🦋</div><div class="deco butterfly bt4">🦋</div>
+      <div class="deco heart h1">♡</div><div class="deco heart h2">♡</div><div class="deco heart h3">♡</div>
+      <div class="deco ornament o1">🎀</div><div class="deco ornament o2">🪩</div><div class="deco ornament o3">🍉</div>
+      <div class="note">little things<br>you love ♡</div>
+    </div>
+    <div class="tap-hint">♡ tap a photo ♡</div>
+  </div>
+
+  <div class="message" id="message">
+    <div class="tiny">ONE LAST THING</div>
+    <h3>Happy Birthday ♡</h3>
+    <p>There are a million little things that make you you.
+And somehow, they all ended up on one tiny wall.
+
+I hope this year gives you more of the things that make you smile,
+more memories worth keeping,
+and a ridiculous amount of reasons to be happy.
+
+You deserve a really, really good year. ♡</p>
+    <div class="signature">made just for you ✨</div>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="modal">
+  <button class="close" aria-label="close">×</button>
+  <div class="card">
+    <img id="modalImg" src="" alt="">
+    <div class="card-body"><h4 id="modalTitle"></h4><p id="modalText"></p></div>
+  </div>
+</div>
+
+<script>
+const intro=document.getElementById('intro'),site=document.getElementById('site');
+document.getElementById('enter').onclick=()=>{intro.style.opacity='0';intro.style.visibility='hidden';site.classList.add('on');window.scrollTo({top:0,behavior:'smooth'})};
+
+const modal=document.getElementById('modal'),mi=document.getElementById('modalImg'),mt=document.getElementById('modalTitle'),mx=document.getElementById('modalText');
+document.querySelectorAll('.photo').forEach(p=>{
+ p.addEventListener('click',()=>{
+   mi.src=p.querySelector('img').src; mt.textContent=p.dataset.title; mx.textContent=p.dataset.text; modal.classList.add('open');
+ });
+});
+modal.addEventListener('click',e=>{if(e.target===modal||e.target.classList.contains('close'))modal.classList.remove('open')});
+
+let opened=new Set();
+document.querySelectorAll('.photo').forEach((p,i)=>p.addEventListener('click',()=>{opened.add(i);if(opened.size>=7)document.getElementById('message').classList.add('show')}));
+</script>
+</body>
+</html>
